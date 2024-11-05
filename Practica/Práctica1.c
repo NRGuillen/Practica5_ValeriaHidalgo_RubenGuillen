@@ -60,6 +60,29 @@ int main(){
 	printf("La temperatura maxima de la semana es el %s a: %.2lfº\n", dias[minDia], maxTemp);
 	printf("La temperatura minima de la semana es el %s a: %.2lfº\n", dias[maxDia], minTemp);
 
+	//Declaramos "mayorMedia" y que empiece desde el 0 
+
+	int mayorMedia = 0;
+	
+	//Declaramos una variable "int i" dentro de for para que recorra todos los dias de la semana
+
+	for(int i = 0; i < 7; i++){
+
+	//el if ira comparando cada dia de la semana(cada array) con el promedio de todas las semanas
+	//y el "mayorMedia" ira sumado un "1" por cada temperatura mayor al resultado
+	//es decir, si(temperatura(10)[0] > 6
+	//mayorMedia(0) + 1
+	//si la temperatura del lunes es mayor a 6, mayorMedia aumenta 1
+	
+	if(temperatura[i] > resultado){
+
+	//incrementa su valor en 1
+
+	mayorMedia++;
+
+	}
+	}
+	printf("Número de días con temperaturas superiores al promedio: %d\n", mayorMedia);
 
 	return 0;
 }
