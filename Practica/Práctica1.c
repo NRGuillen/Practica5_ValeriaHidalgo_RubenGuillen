@@ -7,25 +7,58 @@ int main(){
 	float suma= 0;
 	float temperatura [7];
 	char dias [7][10] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+	float maxTemp = 0;
+	float minTemp = 100;
+	float nuevaTemp;
+	int maxDia = 0;
+	int minDia = 0;
+
+	//se repetira el bucle hasta que i sea mayor a 7. i = 0 -> lunes ... i = 6 -> domingo i = 7 -> Ultimo valor
+	//valido. Cada vez que se repite el bucle te pregunta por la temperatura de cada dia, 
 
 	for(int i = 0; i<7; i++){
 		printf("%s:", dias[i]);
 		scanf("%f", &temperatura[i]);	
 	
-	//Temperatura acumula todos los numeros del scanf y suma se encarga de sumar los numeros recogidos
-	//
+	//"suma" almacena la suma acumulada de las temperaturas de cada dia es decir el scanf de el lunes+martes...
+	//"+=" acualiza el valor es decir suma empieza en 0, 0 + lunes(10) = 10 
+	//suma += temperatura[i] seria lo mismo que decir suma = suma + temperatura[i] 
+	//suma(0) += temperatura[0](10) Lunes
+	//suma(10) += temperatura[1](20) Martes
+	//suma(30)... 
 
 		suma += temperatura[i] ;
 	
+	//"temperatura[i]" indica la temperatura de cada dia, si la temperatura de cada dia es mayor a 0(en este
+	//caso) maxTemp ira guardando los valores mas altos es decir, si el lunes la temperatura es de 25 y el
+	//martes de 10 solo guardara la de el lunes hasta que haya una superior.
+	//"maxDia" representa los dias de la semana es decir la [i] de temperatura
+	
+	//temperatura(15)[0] > maxTemp(0)
+	//maxTemp(15) = temperatura[0] es decir la maxTemp corresponde al lunes (0)
+	//maxDia(0) = [0] es decir el dia con la mayor temperatura corresponde al lunes (0)
+	
+	if(temperatura[i] > maxTemp){
+	   maxTemp = temperatura[i];
+	   maxDia = i;
 	}
-
-
-		float resultado = suma / 7;
-		printf("La temperatura promedio de la semana es:%.2f\n", resultado);
-
-	for(int max = 0; max<dias[0]; max){
-		printf("%d", max);
+	if(temperatura[i] < minTemp){
+	   minTemp = temperatura[i];
+	   minDia = i;
 	}
+        }
+
+	//Declaramos "resultado" para realizar el promedio de los 7 dias en este caso, recogemos el valor de todos
+	//los dias en "suma" y lo dividimos entre 7 para saber el promedio.
+
+	float resultado = suma / 7;
+	printf("La temperatura promedio de la semana es: %.2fº\n", resultado);
+
+	//dias va con [], porque la "i" de dias toma un nuevo valor guardando el dia maximo o minimo del anterior
+	//codigo, en vez de poner "dias[i]", se pone "dias[maxDia]"
+
+	printf("La temperatura maxima de la semana es el %s a: %.2lfº\n", dias[minDia], maxTemp);
+	printf("La temperatura minima de la semana es el %s a: %.2lfº\n", dias[maxDia], minTemp);
 
 
 	return 0;
