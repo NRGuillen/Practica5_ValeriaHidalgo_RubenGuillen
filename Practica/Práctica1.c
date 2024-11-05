@@ -52,13 +52,13 @@ int main(){
 	//los dias en "suma" y lo dividimos entre 7 para saber el promedio.
 
 	float resultado = suma / 7;
-	printf("La temperatura promedio de la semana es: %.2fº\n", resultado);
+	printf("La temperatura promedio de la semana es: %.2f°C\n", resultado);
 
 	//dias va con [], porque la "i" de dias toma un nuevo valor guardando el dia maximo o minimo del anterior
 	//codigo, en vez de poner "dias[i]", se pone "dias[maxDia]"
 
-	printf("La temperatura maxima de la semana es el %s a: %.2lfº\n", dias[minDia], maxTemp);
-	printf("La temperatura minima de la semana es el %s a: %.2lfº\n", dias[maxDia], minTemp);
+	printf("La temperatura maxima de la semana es el %s a: %.2lf°C\n", dias[minDia], maxTemp);
+	printf("La temperatura minima de la semana es el %s a: %.2lf°C\n", dias[maxDia], minTemp);
 
 	//Declaramos "mayorMedia" y que empiece desde el 0 
 
@@ -83,6 +83,12 @@ int main(){
 	}
 	}
 	printf("Número de días con temperaturas superiores al promedio: %d\n", mayorMedia);
+	printf("Dias con temperaturas por debajo del promedio:\n");
+	for(int i = 0; i<7; i++){
+	if(temperatura[i] < resultado){
+		printf("%s: %.2lf°C\n", dias[i], temperatura[i]);
+	}
+	}
 
 	return 0;
 }
