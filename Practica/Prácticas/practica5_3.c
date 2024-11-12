@@ -5,9 +5,12 @@
 #define PRODUCTOS 10
 #define LONGITUD_NOMBRE 21
 #define MAX_PROD 1000
+#define STOCK_MIN 5
 
 int main(){
+
 	int num;
+	char nombre2;
 	char nombre[PRODUCTOS][LONGITUD_NOMBRE];
 	int cantidad[MAX_PROD];
 	int cantidadnueva[MAX_PROD];
@@ -41,29 +44,42 @@ int main(){
 	printf("¿Desea reabastecer algún producto? (sí/no): ");
 	scanf(" %s", respuesta);
 
-	int mod; //Almacena el número de objetos a modificar en el inventario.
+	 //Almacena el número de objetos a modificar en el inventario.
 	if (strcmp(respuesta, "no") == 0){
 	printf("No se procederá al reabastecimiento del producto.\n");}
-
+	
+	
 	else(strcmp(respuesta, "sí") == 0);{
 		printf("Introduzca el número de productos que va a modificar:  ");
-		scanf(" %d", &mod);}
+		scanf(" %d", &num);}
 
-	if (mod > PRODUCTOS){
+	if (num > PRODUCTOS){
                 printf("Solo se pueden gestionar 10 productos a la vez.\n");}
         
 	else{
-                for(int j = 0; j<mod; j++){ //Volvemos a pedir el nombre del producto
+                for(int j = 0; j<num; j++){ //Volvemos a pedir el nombre del producto
         	printf("Ingrese el nombre del producto: ");
-        	scanf(" %s", nombre[j]);
+        	scanf(" %s", &nombre2);
 
         	printf("Cantidad a añadir: ");
        		scanf(" %d", &cantidadnueva[j]);}//Guardamos la cantidad a sumar
 			
 			
-		for(int j = 0; j<mod; j++){		
-		int suma = cantidadnueva[j] + cantidad[j];
-		printf(" %d", cantidadnueva[j]);}}	
+		for(int j = 0; j<num; j++){		
+		
+		int suma;
+			//if (si estoy en el producto que quiero){
+			//	cantidad[j] += cantidadnueva[j]
+			//}
+
+			if(nombre == nombre2){
+				cantidad[j] += cantidadnueva[j];
+	}
+
+	}
+	}
+
+
 return 0;
 }
 
