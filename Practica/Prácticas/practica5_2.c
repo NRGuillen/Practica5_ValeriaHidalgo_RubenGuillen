@@ -10,6 +10,10 @@ int main(){
 	printf("Introduzca el número de almunos a evaluar: ");
 	scanf("%d", &alumnos);
 	
+	//R Se declara un array tipo double de "notas" y con su tamaño "alumnos" que depende del "int alumnos"
+	//cuando el usuario introduzca el numero de alumnos determinal el tamaño array de "notas", si introduce un
+	//3 seria: notas[3] es decir tendra un array del 0 al 2.
+		
 	double notas[alumnos];
 	double suma = 0;
 	for (int i = 0; i<alumnos; i++){ //Se va aumentando en 1 y se va moviendo la posición del array, se va guardando en nota[0], luego nota[1]... hasta 4
