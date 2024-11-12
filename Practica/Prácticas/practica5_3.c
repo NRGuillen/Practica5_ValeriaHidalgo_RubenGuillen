@@ -5,10 +5,12 @@
 #define PRODUCTOS 10
 #define LONGITUD_NOMBRE 21
 #define MAX_PROD 1000
+
 int main(){
 	int num;
 	char nombre[PRODUCTOS][LONGITUD_NOMBRE];
 	int cantidad[MAX_PROD];
+	int cantidadnueva[MAX_PROD];
 
 	//1.Pedimos al usuario la cantidad de productos que va a gestionar
 	printf("Introduce el número de prodcutos que va a gestionar: ");
@@ -54,8 +56,11 @@ int main(){
         		printf("Introduce el nombre del producto %d: ", i + 1 );
         		scanf(" %s", nombre[i]);
 
-        		printf("Introduce la cantidad de %s: ", nombre[i]);
-       			scanf(" %d", &cantidad[i]);}}
+        		printf("Introduce la cantidad a añadir del producto %s: ", nombre[i]);
+       			scanf(" %d", &cantidadnueva[i]);
+			int suma = cantidadnueva[i] + cantidad[i];
+			printf("La cantidad nueva es: %d ", cantidadnueva[i]);
+			}}
 
 
 
